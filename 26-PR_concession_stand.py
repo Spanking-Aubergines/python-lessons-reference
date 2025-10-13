@@ -20,13 +20,23 @@ for key, value in menu.items():
 print("------------////------------")
 
 while True:
-    food= str(input("What food do you want? (q to exit)"))
-    food = food.lower() 
-    if food.upper()== "Q":
+    food= str(input("What food do you want? (C - Checkout | Q - Quit)"))
+    food = food.lower()
+    if food.upper()== "C":
+        print("") 
+        print("----------CHECKOUT---------")
+        for item in cart:
+            inx = cart.index(item)
+            print(f"{item.capitalize():10}   :   {quant[inx]}")
+            total += menu.get(item)
+        print("")     
+        print(f"TOTAL:     {total:.2f}")
+    elif food.upper()== "Q":
         break
     elif menu.get(food) is None:
         print("")
         print(f"{food.capitalize()} is not available on the list. Choose from the list below")
+        print("") 
         print("------------MENU------------")
         for key, value in menu.items():
             print(f"{key.capitalize():10}   :   {value:.2f}€")
@@ -36,17 +46,24 @@ while True:
         quantity = int(input(f"You chose {food}, how many would you like?:   ").lower())
         cart.append(food)
         quant.append(quantity)
-        
+        print("") 
         print("------------MENU------------")
         for key, value in menu.items():
             print(f"{key.capitalize():10}   :   {value:.2f}€")
+        print("")     
         print("------------CART------------")
-        for item in range (len(cart)):
-           print(f"{cart[item].capitalize():10}   :   {quant[item]}")
-    
-    # total = total + menu.get(item) * quant[item]
-    # print("")
+        for item in cart:
+            inx = cart.index(item)
+            print(f"{item.capitalize():10}   :   {quant[inx]}")
+            # total += menu.get(item)
 
-    # print("")
-    # print("")
-    # print (total)        
+        
+
+    
+
+#     total = total + menu.get(value ) * quant[item]
+#     print("")
+
+#     print("")
+#     print("")
+#     print ("")        
