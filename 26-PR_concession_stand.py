@@ -55,15 +55,3 @@ while True:
         for item in cart:
             inx = cart.index(item)
             print(f"{item.capitalize():10}   :   {quant[inx]}")
-            # total += menu.get(item)
-
-        
-
-    
-
-#     total = total + menu.get(value ) * quant[item]
-#     print("")
-
-#     print("")
-#     print("")
-#     print ("")        
