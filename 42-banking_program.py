@@ -32,17 +32,17 @@ def main():
                 "1: Show balance\n",
                 "2: Deposit\n",
                 "3: Withdraw\n",
-                "Q: Quit\n")
+                "4: Quit\n")
 
         op = input("Choose an option: ")
-        match op:
-            case "1" | "S" | "s":
+        match op.lower():
+            case "1" | "s":
                 show_balance()
-            case "2" | "D" | "d":
+            case "2" | "d":
                 deposit()
-            case "3" | "W" | "w":
+            case "3" | "w":
                 withdraw()
-            case "q" | "Q":
+            case "4" | "q":
                 print("Goodbye!")
                 break
             case _:
@@ -50,3 +50,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+    

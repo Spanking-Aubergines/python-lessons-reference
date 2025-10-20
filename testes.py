@@ -5,3 +5,7 @@
 # print (help(questions))
 
 #ff0044
+
+x = "1"
+
+print(x.lower())
