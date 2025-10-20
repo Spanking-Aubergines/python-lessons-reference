@@ -8,3 +8,12 @@
                     # ex: library = impor library for functionality
                         # when running library directly, display a help page
 
+def favorite_food(food):
+    print(f"Your favorite food is {food}")
+
+def main():
+    print("asdasdasd")
+
+
+if __name__ == '__main__':
+    main()
