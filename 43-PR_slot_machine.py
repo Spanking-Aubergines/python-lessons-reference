@@ -13,9 +13,9 @@ def roller(creds, session_creds, current_bet):
         session_creds = 0
         
     if int(current_bet) > session_creds:
-        creds = creds - abs(session_creds - current_bet)
+        creds -= abs(session_creds - current_bet)
     elif current_bet <= float(session_creds):
-        session_creds = session_creds - current_bet
+        session_creds -= current_bet
 
     combination = tuple(icons)
     return combination, creds, session_creds
@@ -27,19 +27,15 @@ def check_calc_prize(combination, creds, session_creds, current_bet):
                   ("A","A","A"):1.75,
                   ("JK","JK","JK"):2}
 
-    for combo in combo_list:
-        if combination == combo:
-            multiplier = combo_list.get(combination)
+    if session_creds is None:
+        session_creds = 0
             
-            if multiplier is None:
-                multiplier = 0
+    multiplier = combo_list.get(combination)
 
-            if session_creds is None:
-                session_creds = 0
-            
-            session_creds = session_creds + (current_bet * multiplier)
-
-            return session_creds
+    if multiplier:
+        session_creds += float(current_bet * multiplier)
+   
+    return session_creds
 
 
 
@@ -54,24 +50,18 @@ def add_credits(creds):
         if cred_add > 0 :
             creds += cred_add
         else:
-
             print("\nInser a valid amount\n")
 
     return creds
 
 def set_bet(current_bet):   
                                                                                                        
-    bet_pos_check = True
     while bet_pos_check == True:
         bet_amount = int(input("Set your bet value: "))
         if bet_amount <= 0:
             print("Bet can'r be less or equal to 0")
         else:
-            bet_pos_check = False
-
-    current_bet = bet_amount
-
-    return current_bet
+            return bet_amount
 
 
 def cashout(creds, session_creds):
@@ -79,7 +69,7 @@ def cashout(creds, session_creds):
     print(f"\nYou cashed out {session_creds}.\n",
           f"Now have a total of {creds} credits.")
     session_creds = 0
-
+ 
     return creds, session_creds
 
 def main():
@@ -118,7 +108,7 @@ def main():
                
                 else:
                     combination, creds, session_creds = roller(creds, session_creds, current_bet)
-                    session_creds = check_calc_prize(combination, creds, session_creds, current_bet)
+                    session_creds = check_calc_prize(combination, creds, session_creds, current_bet) or session_creds
 
             case "2":
                 current_bet= set_bet(current_bet)
