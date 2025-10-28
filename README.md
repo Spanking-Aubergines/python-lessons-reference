@@ -1,6 +1,6 @@
 
 
-# Project Name
+# python-lessons-reference
 
 “A collection of classes following tutorials”
 
