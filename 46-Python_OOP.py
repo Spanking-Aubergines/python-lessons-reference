@@ -6,12 +6,14 @@
 
 
 #for good practice put classes in another file then import
-class Car:
-    def __init__(self, model, year, color, for_sale):
-        self.model = model
-        self.year = year
-        self.color = color
-        self.for_sale = for_sale
+# class Car:
+#     def __init__(self, model, year, color, for_sale):
+#         self.model = model
+#         self.year = year
+#         self.color = color
+#         self.for_sale = for_sale
+
+from car import Car
 
 car1 = Car("SpaceStar", 2000, "white", False)
 car2 = Car("TransAm Firebird", 1979, "white/blue", True)
@@ -25,12 +27,8 @@ print(car1.for_sale)
 
 
 # methods 
+# in fiel car
 
-def drive(self):
-    print (f"You drive the {self.color} {self.model}")
-
-def stop(self):
-    print (f"You stop the {self.color} {self.model}")
 
 car1.drive()
 car2.stop()
