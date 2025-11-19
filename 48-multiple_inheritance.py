@@ -6,19 +6,23 @@
 
 
 class Animal:
+
+    def __init__ (self, name):
+        self.name = name
+
     def eat(self):
-        print(f"This animal is eating")
+        print(f"{self.name} is eating")
 
     def sleep(self):
-        print(f"This animal is sleeping")
+        print(f"{self.name} is sleeping")
 
 class Prey(Animal):
     def flee(self):
-        print("This animal is fleeing")
+        print(f"This animal is fleeing")
 
 class Predator(Animal):
     def hunt(self):
-        print("This animal is hunting")
+        print(f"This animal is hunting")
 
 class Rabbit(Prey):
     pass
@@ -45,3 +49,8 @@ fish.hunt()
 # multilevel( Fish <- (Prey, Predator) <- Animal)
 rabbit.sleep()
 hawk.eat()
+
+# the constructor can also be inherited
+rabit = Rabbit("Fofinho")
+
+rabbit.eat()
